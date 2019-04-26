@@ -23,9 +23,7 @@
   become_user: root
   with_items:
   - "{{ manifests.files }}"
-  when:
-  - splunk.allow_upgrade is defined
-  - splunk.allow_upgrade | bool
+  when: splunk_upgrade
 
 - name: Download Splunk package (Windows)
   get_url:
